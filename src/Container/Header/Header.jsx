@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 // import { AppWrap } from '../../wrapper';
-import { images } from '../../Constants';
-import './Header.scss';
+import { images } from "../../Constants";
+import "./Header.scss";
 
 const scaleVariants = {
   whileInView: {
@@ -11,44 +11,44 @@ const scaleVariants = {
     opacity: [0, 1],
     transition: {
       duration: 1,
-      ease: 'easeInOut',
+      ease: "easeInOut",
     },
   },
 };
 
 const Header = () => (
-  <div className="app__header app__flex">
-    <motion.div
-      whileInView={{ x: [-100, 0], opacity: [0, 1] }}
-      transition={{ duration: 0.5 }}
-      className="app__header-info"
-    >
-      <div className="app__header-badge">
-        <div className="badge-cmp app__flex">
-          <span>👋</span>
-          <div style={{ marginLeft: 20 }}>
-            <p className="p-text">Hello, I am</p>
-            <h1 className="head-text">Rafi</h1>
+  <div className="app__header app__flex" id="home">
+    <div className="app__header-main">
+      <motion.div
+        whileInView={{ x: [-100, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.5 }}
+        className="app__header-info"
+      >
+        <div className="app__header-badge">
+          <div className="badge-cmp app__flex">
+            <span>👋</span>
+            <div style={{ marginLeft: 20 }}>
+              <p className="p-text">Hello, I am</p>
+              <h1 className="head-text">Rafi Ahmed</h1>
+            </div>
+          </div>
+
+          <div className="tag-cmp app__flex">
+            <p className="p-text">MERN Stalk Developer</p>
           </div>
         </div>
+      </motion.div>
 
-        <div className="tag-cmp app__flex">
-          <p className="p-text">MERN Stack Developer</p>
-          <p className="p-text">Entrepreneur</p>
-          <p className="p-text">Learner</p>
+      <motion.div
+        whileInView={{ opacity: [0, 1] }}
+        transition={{ duration: 0.5, delayChildren: 0.5 }}
+        className="app__header-img"
+      >
+        <img src={images.profile} alt="profile_bg" />
+      </motion.div>
+    </div>
 
-        </div>
-      </div>
-    </motion.div>
-
-    <motion.div
-      whileInView={{ opacity: [0, 1] }}
-      transition={{ duration: 0.5, delayChildren: 0.5 }}
-      className="app__header-img"
-    >
-      <img src={images.profile} alt="profile_bg" />
-    </motion.div>
-
+    <div>
     <motion.div
       variants={scaleVariants}
       whileInView={scaleVariants.whileInView}
@@ -60,6 +60,7 @@ const Header = () => (
         </div>
       ))}
     </motion.div>
+    </div>
   </div>
 );
 
